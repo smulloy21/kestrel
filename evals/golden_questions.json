@@ -1,0 +1,22 @@
+[
+  {"q": "why is coolant pressure falling",              "expect": ["MAINT-0203", "LOG-WREN-0203", "MAN-THM-04", "SENS-THM"]},
+  {"q": "how do I fix the coolant loop",                "expect": ["MAN-THM-04"]},
+  {"q": "why is the reactor at 40 percent",             "expect": ["INC-0214", "SENS-PWR", "MAN-PWR-07"], "tier": "engineering"},
+  {"q": "how do I restart the injectors",               "expect": ["MAN-PWR-07"], "tier": "engineering"},
+  {"q": "is there anything unusual about injector 2 or 3", "expect": ["MAINT-0151", "LOG-WREN-0150"]},
+  {"q": "CO2 is rising what do I do",                   "expect": ["MAN-LS-03", "MAN-LS-05", "MAN-LS-09", "SENS-LS"]},
+  {"q": "how do I lower CO2 fast",                      "expect": ["MAN-LS-09", "MAN-LS-03"]},
+  {"q": "where are the spare scrubber cartridges",      "expect": ["MAINT-0198", "MAINT-0140", "MAN-LS-05"]},
+  {"q": "where is the hull patch kit",                  "expect": ["MAINT-0140", "MAN-HULL-02"]},
+  {"q": "how do I send a distress signal",              "expect": ["MAN-COM-06", "MAN-COM-01"]},
+  {"q": "what is the data core passphrase",             "expect": ["LOG-TANABE-0209", "MAN-COM-06"]},
+  {"q": "what does Halloran say before a burn",         "expect": ["LOG-HALLORAN-0045", "LOG-HALLORAN-0120", "LOG-HALLORAN-0180"]},
+  {"q": "why can't the star tracker get a fix",         "expect": ["MAN-NAV-03", "SENS-NAV"]},
+  {"q": "how do I revive someone from stasis",          "expect": ["MAN-MED-04", "LOG-SANDOVAL-0208", "MAN-MED-02"]},
+  {"q": "who is in pod 6",                              "expect": ["DATA-ROSTER", "SENS-MED"]},
+  {"q": "who snores",                                   "expect": ["LOG-SANDOVAL-0015"]},
+  {"q": "who owes coffee",                              "expect": ["MSG-0181-01", "LOG-HALLORAN-0180"]},
+  {"q": "what happened to the captain",                 "expect": ["INC-0218", "LOG-OKONKWO-0217"], "tier": "command"},
+  {"q": "why does the ship weigh more than it should",  "expect": ["SENS-HULL", "INC-0214"]},
+  {"q": "what did I write about the scrubbers",         "expect": ["LOG-OKAFOR-0198"], "tier": "engineering", "identified": true}
+]
