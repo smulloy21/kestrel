@@ -237,7 +237,10 @@ evals/              separate from the package because they test it, not belong t
   responses.py      given that they did, does KES behave?
   golden_questions.json
 
+ecosystem.config.js  pm2 process definition for the deployed server
+
 docs/
+  DEPLOY.md         droplet, nginx and pm2, including the two settings that silently break it
   DESIGN_BIBLE.md   premise, crew, timeline, fault chains, endings, the real explanation
   RAG_PRIMER.md     how the pipeline works, step by step, tied to the code
   OBSERVABILITY.md  what is logged, why, and how to read it
@@ -382,6 +385,18 @@ authoring aid for playtesting and must not be exposed to KES.
   fallback serves is listed as a failure at the end.
 - Model and default effort can be overridden with the `KESTREL_MODEL` and `KESTREL_EFFORT`
   environment variables, e.g. `KESTREL_MODEL=claude-opus-5` to compare output.
+
+## Deploying
+
+`docs/DEPLOY.md` covers a droplet with nginx and pm2. Two settings there are not optional:
+nginx must have `proxy_buffering off`, or KES's streaming answers arrive in one lump after
+a pause, and pm2 must run a single instance in fork mode, because sessions live in the
+server process's memory.
+
+The server reads its configuration from the environment (`KESTREL_SEED`, `KESTREL_PORT`,
+`KESTREL_DAILY_TURNS`, `KESTREL_SESSION_TTL`, `KESTREL_MAX_SESSIONS`), reaps idle sessions,
+caps questions per day so a public URL cannot become an unbounded API bill, and exposes
+`/healthz` reporting whether the index actually loaded.
 
 ## Why Chroma
 
